@@ -48,6 +48,9 @@ public class Authentication {
     System.out.println(tokenCredential.getAccessToken());
     System.out.println(tokenCredential.getAuthenticationType());
     System.out.println(tokenCredential.getIdToken());
+    System.out.println(credentials.getAuthenticationType());
+    System.out.println(credentials.getAccessToken());
+    System.out.println(credentials.getApplicationDefault());
     GenericUrl genericUrl = new GenericUrl(serviceUrl);
     HttpCredentialsAdapter adapter = new HttpCredentialsAdapter(tokenCredential);
     HttpTransport transport = new NetHttpTransport();

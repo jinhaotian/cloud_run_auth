@@ -45,7 +45,9 @@ public class Authentication {
             .setIdTokenProvider((IdTokenProvider) credentials)
             .setTargetAudience(serviceUrl)
             .build();
-
+    System.out.println(tokenCredential.getAccessToken());
+    System.out.println(tokenCredential.getAuthenticationType());
+    System.out.println(tokenCredential.getIdToken());
     GenericUrl genericUrl = new GenericUrl(serviceUrl);
     HttpCredentialsAdapter adapter = new HttpCredentialsAdapter(tokenCredential);
     HttpTransport transport = new NetHttpTransport();

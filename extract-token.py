@@ -20,5 +20,5 @@ body = json.dumps({'audience': function_url})
 
 token_response = authed_session.request('POST',metadata_server_url, data=body, headers=token_headers)
 jwt = token_response.json()
-print(jwt)
+print("jwt",jwt)
 #print(jwt['token'])

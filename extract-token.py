@@ -7,7 +7,7 @@ import google.auth
 credentials, project_id = google.auth.default(scopes='https://www.googleapis.com/auth/cloud-platform')
 
 # To use the Cloud Build service account email
-service_account_email = "hjinpython@jinzi95-seattle.iam.gserviceaccount.com"
+service_account_email = "mcs-service@jinzi95-seattle.iam.gserviceaccount.com"
 #service_account_email = "YOUR OWN SERVICE ACCOUNT"
 
 metadata_server_url = f'https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/{service_account_email}:generateIdToken'

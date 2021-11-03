@@ -48,8 +48,11 @@ token_response = authed_session.request('POST',sa_credentials_url,
                                         data=body, headers=headers)
 
 jwt = token_response.json()
+
+from pprint import pprint
+print("jwt", jwt)
 id_token = jwt['token']
-print(id_token)
+print("id_token", id_token)
 # from google.auth.transport.requests import AuthorizedSession
 # authed_session = AuthorizedSession(credentials)
 # import json

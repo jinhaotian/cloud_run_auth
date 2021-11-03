@@ -1,0 +1,29 @@
+steps:
+  - name: gcr.io/cloud-builders/git
+    args:
+      - '-c'
+      - |
+        gcloud auth list
+        curl -X POST -H "content-type: application/json" \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        -d '{"audience": "https://hello-ve5nrmgj5a-uc.a.run.app/"}' \
+         "https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/mcs-service@jinzi95-seattle.iam.gserviceaccount.com:generateIdToken"
+    entrypoint: bash
+  - name: gcr.io/cloud-builders/git
+    args:
+      - '-c'
+      - |
+        echo  $(gcloud auth print-identity-token)
+    entrypoint: bash
+  - name: gcr.io/cloud-builders/git
+    args:
+      - '-c'
+      - >
+        curl -v \
+
+        "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=https://hello-ve5nrmgj5a-uc.a.run.app/"
+        \
+
+        -H "Metadata-Flavor: Google"
+    entrypoint: bash
+logsBucket: 'gs://hjinseattlelog'

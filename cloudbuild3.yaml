@@ -1,0 +1,19 @@
+steps:
+  - name: 'python:3.7'
+    args:
+      - '-c'
+      - |
+        pip3 install google-auth requests
+        python3 extract-token.py
+    entrypoint: bash
+  - name: 'maven:3-jdk-11'
+    args:
+      - test
+      - package
+      - install
+      - deploy
+    entrypoint: mvn
+logsBucket: 'gs://hjinseattlelog'
+options:
+  pool:
+    name: projects/jinzi95-seattle/locations/us-west1/workerPools/test

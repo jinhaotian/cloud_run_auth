@@ -10,6 +10,13 @@ function_url = "https://hello-ve5nrmgj5a-uc.a.run.app"
 # print(fetch_id_token(r,"https://www.googleapis.com/auth/cloud-platform"))
 
 import google.auth
+
+import google.auth.transport.requests
+creds, project = google.auth.default()
+auth_req = google.auth.transport.requests.Request()
+creds.refresh(auth_req)
+
+print("cred:token",creds.token)
 from google.auth.transport.requests import AuthorizedSession
 import json
 audience = '"https://hello-ve5nrmgj5a-uc.a.run.app"'

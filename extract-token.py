@@ -18,9 +18,12 @@ credentials, project_id = google.auth.default(
             scopes='https://www.googleapis.com/auth/cloud-platform')
 
 # #2 To use the current service account email
-service_account_email = credentials.service_account_email
+#service_account_email = credentials.service_account_email
 #not working  with use account
-#service_account_email = "mcs-service@jinzi95-seattle.iam.gserviceaccount.com"
+service_account_email = "mcs-service@jinzi95-seattle.iam.gserviceaccount.com"
+
+from pprint import pprint
+pprint(vars(credentials))
 
 sa_credentials_url =  f'https://iamcredentials.googleapis.com/' \
                       f'v1/projects/-/serviceAccounts/'  \

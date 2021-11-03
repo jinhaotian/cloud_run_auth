@@ -16,7 +16,7 @@ creds, project = google.auth.default()
 auth_req = google.auth.transport.requests.Request()
 creds.refresh(auth_req)
 
-print("cred:token",creds.token)
+#print("cred:token",creds.token)
 from google.auth.transport.requests import AuthorizedSession
 import json
 audience = '"https://hello-ve5nrmgj5a-uc.a.run.app"'
@@ -32,14 +32,14 @@ service_account_email = "mcs-service@jinzi95-seattle.iam.gserviceaccount.com"
 # from pprint import pprint
 # pprint(vars(credentials))
 
-import subprocess
-access_token = subprocess.run(['gcloud', 'auth', 'print-access-token'], stdout=subprocess.PIPE)
+# import subprocess
+# access_token = subprocess.run(['gcloud', 'auth', 'print-access-token'], stdout=subprocess.PIPE)
 
 sa_credentials_url =  f'https://iamcredentials.googleapis.com/' \
                       f'v1/projects/-/serviceAccounts/'  \
                       f'{service_account_email}:generateIdToken'
 
-headers = {'content-type': 'application/json', 'Authurization': f'Bearer {access_token}'}
+headers = {'content-type': 'application/json', 'Authurization': f'Bearer {creds.token}'}
 
 authed_session = AuthorizedSession(credentials)
 body = json.dumps({'audience': audience})

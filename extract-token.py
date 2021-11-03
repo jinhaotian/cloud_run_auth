@@ -14,7 +14,7 @@ import google.auth
 import google.auth.transport.requests
 creds, project = google.auth.default()
 auth_req = google.auth.transport.requests.Request()
-creds.refresh(auth_req)
+#creds.refresh(auth_req)
 
 #print("cred:token",creds.token)
 from google.auth.transport.requests import AuthorizedSession
